@@ -1,0 +1,63 @@
+/* screen edit with flexbox */
+.calc {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   width: 80%;
+   margin: 0 auto;
+   padding: 2rem;
+   color: #FFF;
+   background: #263238;
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+   /* Fluid Typo:
+
+      font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((10vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+   */
+   font-size: calc(24px + (72 - 24) * ((100vw - 300px) / (1600 - 300)));
+}
+.screen {
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+   height: 20vh;
+   font-size: 3em;
+   border: 1px solid #ECEFF155;
+}
+
+/* keys edit whith CSS Grid */
+.keys {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(5, 1fr);
+   height: 80vh;
+   grid-gap: 1vh;
+}
+.keys > * {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 5%;
+   transition: 0.5s;
+}
+.keys > *:hover {
+   filter: brightness(120%);
+}
+.keys > *:active {
+   filter: brightness(150%);
+}
+div[data-key="AC"] {
+   grid-column: 1 / 4;
+}
+div[data-key="0"] {
+   grid-column: 1 / 3;
+}
+.digit {
+   background: #37474F;
+}
+.operator {
+   background: #FF9100;
+}
+.clear {
+   background: #90A4AE;
+   color: #263238;
+}
